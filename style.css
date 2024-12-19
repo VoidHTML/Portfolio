@@ -237,9 +237,10 @@ h1 {
 
 /*code de la page about me*/
 
-.about-me{
-    background-color: darkslategrey;
-    color :white;
+.about-me {
+  background-color: darkslategrey;
+  color: white;
+  min-height: 100vh;
 }
 
 .about_me {
@@ -247,102 +248,99 @@ h1 {
   padding-top: 100px;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .my_profil_picture {
-    width: 25%;
-        
-    overflow: hidden;
-  }
-  
+  width: 25%;
+}
+
 .my_profil_picture img {
-    width: 100%;
-    
-    object-fit: cover;
-  }
+  width: 100%;
+  object-fit: cover;
+}
 
 .information_profil {
-    background-color:black;
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-  }
+  background-color: black;
+  width: 60%;
+  padding: 2rem;
+  border-radius: 10px;
+}
 
-  .mes_info_perso{
-    background-color:darkgrey;
-    width: 500px;
-    height: 100px;
-  }
+.information_profil h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
 
-  .Background{
-    padding-top: 10px;
-    background-color:red;
-    width: 500px;
-    height: 100px;
-  }
+.mes_info_perso {
+  background-color: darkgrey;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
 
-  .goals_fru{
-    padding-top: 10px;
-    display: flex;           
-    justify-content: space-between;
-    background-color:#45a049;
-    width: 500px;
-    height: 120px;
-  }
+.mes_info_perso p {
+  margin: 0.5rem 0;
+}
 
-  .goals{
-    padding-top: 10px;
-    background-color:chocolate;
-    width: 230px;
-    height: 100px;
-  }
+.Background {
+  margin: 1rem 0;
+}
 
-  .frustration{
-    padding-top: 10px;
-    background-color:rgb(129, 54, 0);
-    width: 230px;
-    height: 100px;
-  }
-  
-  .skills-section{
-    padding-top: 10px;
-    display: flex;           
-    justify-content: space-between;
-    background-color:aqua;
-    width: 500px;
-    height: 120px;
-  }
+.goals_fru {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 1rem 0;
+}
 
-  .photoshop{
-    padding-top: 10px;
-    background-color:rgb(129, 54, 0);
-    width: 100px;
-    height: 100px;
-  }
+.goals, .frustration {
+  flex: 1;
+  padding: 1rem;
+}
 
-  .blender{
-    padding-top: 10px;
-    background-color:rgb(129, 54, 0);
-    width: 100px;
-    height: 100px;
-  }
+/* Skills section */
+.skills-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+}
 
-  .unreal{
-    padding-top: 10px;
-    background-color:rgb(129, 54, 0);
-    width: 100px;
-    height: 100px;
-  }
+.skill-circle {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
 
-  .html{
-    padding-top: 10px;
-    background-color:rgb(129, 54, 0);
-    width: 100px;
-    height: 100px;
-  }
+.skill-circle svg {
+  transform: rotate(-90deg);
+}
+
+.skill-circle circle {
+  fill: none;
+  stroke-width: 8;
+}
+
+.skill-circle .background {
+  stroke: #444;
+}
+
+.skill-circle .progress {
+  stroke: #fff;
+  stroke-dasharray: 251.2;
+  stroke-dashoffset: 87.92; /* 65% progress */
+}
+
+.skill-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
 
   /*information contact*/ 
 
