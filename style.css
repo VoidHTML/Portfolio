@@ -271,7 +271,7 @@ h1 {
 }
 
 .mes_info_perso {
-  background-color: darkgrey;
+  background-color: #666;
   padding: 1rem;
   border-radius: 5px;
   margin-bottom: 1rem;
@@ -282,6 +282,7 @@ h1 {
 }
 
 .Background {
+  padding: 1rem;
   margin: 1rem 0;
 }
 
