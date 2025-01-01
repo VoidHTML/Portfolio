@@ -260,10 +260,13 @@ h1 {
 
 /* Information section */
 .information_profil {
-  background-color: black;
   width: 60%;
-  padding: 0.5rem;
+  background-color: black;
+  padding: 1rem;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .information_profil h1 {
