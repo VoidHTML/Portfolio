@@ -248,6 +248,7 @@ h1 {
   align-items: flex-start;
 }
 
+/* Profile picture */
 .my_profil_picture {
   width: 25%;
 }
@@ -257,45 +258,42 @@ h1 {
   object-fit: cover;
 }
 
+/* Information section */
 .information_profil {
   background-color: black;
   width: 60%;
-  padding: 2rem;
+  padding: 0.5rem;
   border-radius: 10px;
 }
 
 .information_profil h1 {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
+/* Info blocks */
 .mes_info_perso {
   background-color: #666;
-  padding: 1rem;
-  border-radius: 5px;
-  margin-bottom: 1rem;
-}
-
-.mes_info_perso p {
-  margin: 0.5rem 0;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .Background {
-  padding: 1rem;
-  margin: 1rem 0;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .goals_fru {
   display: flex;
   justify-content: space-between;
-  gap: 2rem;
-  margin: 10px;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .goals, .frustration {
   flex: 1;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 /* Skills section */
@@ -303,7 +301,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
 }
 
 .skill-circle {
@@ -328,7 +326,7 @@ h1 {
 .skill-circle .progress {
   stroke: #fff;
   stroke-dasharray: 251.2;
-  stroke-dashoffset: 87.92; /* 65% progress */
+  stroke-dashoffset: 87.92;
 }
 
 .skill-label {
@@ -338,6 +336,15 @@ h1 {
   transform: translate(-50%, -50%);
   text-align: center;
   color: white;
+}
+
+/* Text styles */
+h3 {
+  margin-top: 0;
+}
+
+p {
+  margin: 0;
 }
 
   /*information contact*/ 
