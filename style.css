@@ -419,22 +419,23 @@ p {
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
-  padding-top: 20px;
 }
 
 .contact-container {
   flex: 1;
   margin-right: 40px;
+  padding-top: 150px;
 }
 
 .contact-image {
   flex: 1;
-  height: 600px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
 }
 
 .contact-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
 }
