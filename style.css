@@ -353,25 +353,31 @@ p {
 
   /*information contact*/ 
 
-  .contact-container {
+  .contact {
+    background-color: #1e2124;
+    min-height: 100vh;
+ }
+ 
+ .contact-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 120px 20px 20px;
     color: white;
-}
-
-h1 {
+ }
+ 
+ .contact h1 {
     font-size: 48px;
     margin-bottom: 20px;
-}
-
-.subtitle {
+ }
+ 
+ .contact .subtitle {
     color: #8b8b8b;
     font-size: 18px;
     margin-bottom: 40px;
-}
-
-input, textarea {
+ }
+ 
+ .contact input, 
+ .contact textarea {
     width: 100%;
     padding: 15px;
     margin-bottom: 20px;
@@ -380,14 +386,14 @@ input, textarea {
     border-radius: 5px;
     color: white;
     font-size: 16px;
-}
-
-textarea {
+ }
+ 
+ .contact textarea {
     min-height: 150px;
     resize: vertical;
-}
-
-button {
+ }
+ 
+ .contact button {
     width: 100%;
     padding: 15px;
     background-color: #8B5CF6;
@@ -398,22 +404,37 @@ button {
     font-size: 16px;
     font-weight: bold;
     transition: background-color 0.3s ease;
-}
-
-button:hover {
+ }
+ 
+ .contact button:hover {
     background-color: #7C3AED;
-}
-
-::placeholder {
+ }
+ 
+ .contact ::placeholder {
     color: #8b8b8b;
+ }
+
+ .contact-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 20px 20px;
 }
 
-@media (max-width: 768px) {
-    .contact-container {
-        flex-direction: column;
-    }
-    
-    .contact-image {
-        width: 100%;
-    }
+.contact-container {
+  flex: 1;
+  margin-right: 40px;
+}
+
+.contact-image {
+  flex: 1;
+  height: 600px;
+}
+
+.contact-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
