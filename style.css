@@ -460,12 +460,12 @@ p {
 }
 
 #image1 {
-  background-image: url('votre-image-1.jpg');
+  background-image: url('img/nuitunrealslide.jpg');
   opacity: 1;
 }
 
 #image2 {
-  background-image: url('votre-image-2.jpg');
+  background-image: url('img/jourunrealslide.jpg');
   opacity: 0;
 }
 
