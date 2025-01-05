@@ -441,64 +441,108 @@ p {
 
 /*image des slide page accueil*/ 
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.slideshow {
-  height: 100vh;
+.imagefond {
   position: relative;
+  height: 100vh;
   overflow: hidden;
 }
 
-.slide {
+.bg-image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   opacity: 0;
-  animation: fade 16s infinite;
+  transition: opacity 1s ease;
+  background-size: cover;
+  background-position: center;
 }
 
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+#image1 {
+  background-image: url('votre-image-1.jpg');
+  opacity: 1;
 }
 
-.slide:nth-child(1) {
-  animation-delay: 0s;
+#image2 {
+  background-image: url('votre-image-2.jpg');
+  opacity: 0;
 }
 
-.slide:nth-child(2) {
-  animation-delay: 4s;
+.content {
+  position: relative;
+  z-index: 10;
+  padding: 8% 10%;
+  color: white;
 }
 
-.slide:nth-child(3) {
-  animation-delay: 8s;
+.vision-title {
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2rem;
 }
 
-.slide:nth-child(4) {
-  animation-delay: 12s;
+.main-title {
+  font-size: 8.5rem;
+  font-weight: 200;
+  margin-bottom: 2.5rem;
+  line-height: 1;
+  letter-spacing: -2px;
 }
 
-@keyframes fade {
-  0% {
-      opacity: 0;
-  }
-  5% {
-      opacity: 1;
-  }
-  20% {
-      opacity: 1;
-  }
-  25% {
-      opacity: 0;
-  }
-  100% {
-      opacity: 0;
-  }
+.description {
+  font-size: 1.15rem;
+  font-weight: 300;
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+}
+
+.example-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 300;
+  display: inline-flex;
+  align-items: center;
+}
+
+.example-link::before {
+  content: "○";
+  margin-right: 0.7rem;
+  font-size: 0.7rem;
+  position: relative;
+  top: -1px;
+}
+
+#toggle:checked ~ #image1 {
+  opacity: 0;
+}
+
+#toggle:checked ~ #image2 {
+  opacity: 1;
+}
+
+/* Style du bouton de navigation */
+.nav-button {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  z-index: 100;
+}
+
+#toggle {
+  display: none;
+}
+
+#toggle:checked + .nav-button {
+  background: white;
 }
