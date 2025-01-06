@@ -288,15 +288,15 @@ h1 {
   animation-delay: 0.1s;
 }
 
-.skill-per.scss {
+.skill-per.unreal {
   /*progreso de las diferentes lenguajes*/
-  width: 80%;
+  width: 50%;
   animation-delay: 0.1s;
 }
 
-.skill-per.Boostrap {
+.skill-per.blender {
   /*progreso de las diferentes lenguajes*/
-  width: 50%;
+  width: 60%;
   animation-delay: 0.2s;
 }
 
