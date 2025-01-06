@@ -175,7 +175,7 @@ h1 {
 /*code de la page about me*/
 
 .about-me {
-  background-color: darkslategrey;
+  background-color:#444;
   color: white;
   min-height: 100vh;
 }
