@@ -292,6 +292,9 @@ p {
 }
 
   /*information contact*/ 
+.contact{
+  background-color: #000000;
+}
 
   .contact-content {
     display: flex;
