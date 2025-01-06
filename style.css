@@ -360,22 +360,35 @@ p {
 
 .contact-content {
   display: flex;
-  height: calc(100vh - 60px); /* 60px est la hauteur de la navbar */
+  height: calc(100vh - 60px);
   margin-top: 60px;
 }
 
 .contact-form {
   width: 50%;
   padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-form h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.contact-form .subtitle {
+  margin-bottom: 30px;
 }
 
 .mountain-image {
   width: 50%;
+  height: calc(100vh - 60px);
 }
 
 .mountain-image img {
   width: 100%;
-  height: calc(100vh - 60px);
+  height: 100%;
   object-fit: cover;
 }
 
