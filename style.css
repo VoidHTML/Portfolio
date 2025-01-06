@@ -360,12 +360,13 @@ p {
 
 .contact-content {
   display: flex;
-  height: 100vh;
+  height: calc(100vh - 60px); /* 60px est la hauteur de la navbar */
+  margin-top: 60px;
 }
 
 .contact-form {
   width: 50%;
-  padding: 100px 50px;
+  padding: 40px;
 }
 
 .mountain-image {
@@ -374,7 +375,7 @@ p {
 
 .mountain-image img {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 60px);
   object-fit: cover;
 }
 
