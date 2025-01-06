@@ -241,45 +241,92 @@ h1 {
 }
 
 /* Skills section */
-.skills-section {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-top: 0.5rem;
+
+
+.information_profil .skill-box {
+  width: 100%;
+  margin: 25px 0;
 }
 
-.skill-circle {
+.skill-box .title {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(226, 226, 226);
+}
+
+.skill-box .skill-bar {
+  height: 8px;
+  width: 100%;
+  border-radius: 6px;
+  margin-top: 6px;
+  background: rgba(236, 236, 236, 0.1);
+}
+
+.skill-bar .skill-per {
   position: relative;
-  width: 100px;
-  height: 100px;
+  display: block;
+  height: 100%;
+  width: 90%;
+  border-radius: 6px;
+  background: rgb(226, 226, 226);
+  animation: progress 0.4s ease-in-out forwards;
+  opacity: 0;
 }
 
-.skill-circle svg {
-  transform: rotate(-90deg);
+.skill-per.html {
+  /*progreso de las diferentes lenguajes*/
+  width: 70%;
+  animation-delay: 0.1s;
 }
 
-.skill-circle circle {
-  fill: none;
-  stroke-width: 8;
+.skill-per.scss {
+  /*progreso de las diferentes lenguajes*/
+  width: 80%;
+  animation-delay: 0.1s;
 }
 
-.skill-circle .background {
-  stroke: #444;
+.skill-per.Boostrap {
+  /*progreso de las diferentes lenguajes*/
+  width: 50%;
+  animation-delay: 0.2s;
 }
 
-.skill-circle .progress {
-  stroke: #fff;
-  stroke-dasharray: 251.2;
-  stroke-dashoffset: 87.92;
+@keyframes progress {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
-.skill-label {
+.skill-per .tooltip {
   position: absolute;
-  top: 50%;
+  right: -14px;
+  top: -28px;
+  font-size: 9px;
+  font-weight: 500;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: rgb(226, 226, 226);
+  z-index: 1;
+}
+
+.tooltip::before {
+  content: "";
+  position: absolute;
   left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
+  bottom: -2px;
+  height: 10px;
+  width: 10px;
+  z-index: -1;
+  background-color: rgb(226, 226, 226);
+  transform: translateX(-50%) rotate(45deg);
 }
 
 /* Text styles */
