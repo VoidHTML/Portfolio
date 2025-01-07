@@ -41,20 +41,36 @@ nav a:hover {
   font-family: 'Courier New', monospace;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
 
+body {
+  background-color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .container {
   width: 100%;
+  height: 100vh;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
+  padding: 2rem;
 }
 
 .left-content {
   flex: 1;
+  z-index: 1;
 }
 
 .name {
@@ -94,7 +110,7 @@ nav a:hover {
 
 .portfolio-box {
   flex: 1;
-  aspect-ratio: 1;
+  height: 100vh;
   background-color: #0f172a;
   display: flex;
   align-items: center;
@@ -188,6 +204,7 @@ nav a:hover {
 
   .portfolio-box {
       width: 100%;
+      height: 50vh;
   }
 
   .name {
