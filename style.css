@@ -4,28 +4,6 @@
   font-weight: bold;
 }
 
-nav {
-    position:fixed;
-    top: 0;
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    background-color: grey;
-    z-index: 1;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: #4CAF50;
-}
 
 .container {
   margin: 0;
@@ -34,32 +12,51 @@ nav a:hover {
   font-family: 'Courier New', monospace;
 }
 
-html, body {
-  width: 100%;
-  height: 100vh;
+html {
+  scroll-behavior: smooth;
+}
 
+body {
   background-color: #404040;
 }
 
 nav {
-  background-color: #808080;
-  padding: 1rem 0;
+  position: fixed;
+  top: 0;
   width: 100%;
-  text-align: center;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background-color: grey;
+  z-index: 1;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+nav.visible {
+  transform: translateY(0);
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  margin: 0 1.5rem;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-.container {
-  width: 100%;
-  height: calc(100vh - 48px);
+nav a:hover {
+  color: #4CAF50;
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#home {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -77,35 +74,6 @@ nav a {
   position: relative;
   opacity: 0;
   animation: glitch-text 3s steps(30, end) forwards;
-}
-
-@keyframes glitch-text {
-  0% {
-      opacity: 0;
-      clip-path: inset(0 100% 0 0);
-      transform: translateX(-20px);
-  }
-  20% {
-      clip-path: inset(0 80% 0 0);
-      transform: translateX(-10px);
-  }
-  40% {
-      clip-path: inset(0 60% 0 0);
-      transform: translateX(-5px);
-  }
-  60% {
-      clip-path: inset(0 40% 0 0);
-      transform: translateX(-2px);
-  }
-  80% {
-      clip-path: inset(0 20% 0 0);
-      transform: translateX(-1px);
-  }
-  100% {
-      opacity: 1;
-      clip-path: inset(0 0 0 0);
-      transform: translateX(0);
-  }
 }
 
 .info {
@@ -126,34 +94,87 @@ nav a {
   letter-spacing: 0.2em;
 }
 
+#portfolio {
+  background-color: #333;
+}
+
+#about {
+  background-color: #2a2a2a;
+}
+
+#contact {
+  background-color: #222;
+}
+
+#project {
+  background-color: #1a1a1a;
+}
+
+.background-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  animation: float 15s infinite linear;
+}
+
+@keyframes float {
+  0%, 100% {
+      transform: translateY(0) translateX(0);
+  }
+  25% {
+      transform: translateY(-100px) translateX(50px);
+  }
+  50% {
+      transform: translateY(-50px) translateX(-50px);
+  }
+  75% {
+      transform: translateY(-150px) translateX(25px);
+  }
+}
+
+@keyframes glitch-text {
+  0% {
+      opacity: 0;
+      clip-path: inset(0 100% 0 0);
+  }
+  100% {
+      opacity: 1;
+      clip-path: inset(0 0 0 0);
+  }
+}
+
 @media (max-width: 768px) {
-  .container {
+  #home {
       flex-direction: column;
       text-align: center;
-      padding: 1rem;
+  }
+
+  .left-content {
+      margin: 0 0 2rem 0;
+  }
+
+  .portfolio-box {
+      margin: 0;
+      padding: 2rem;
+  }
+
+  .name, .portfolio-text {
+      font-size: 2.5rem;
   }
 
   nav a {
       margin: 0 0.5rem;
       font-size: 0.9rem;
-  }
-
-  .left-content {
-      margin-left: 0;
-      margin-bottom: 2rem;
-  }
-
-  .portfolio-box {
-      margin-right: 0;
-      padding: 2rem 3rem;
-  }
-
-  .name {
-      font-size: 2.5rem;
-  }
-
-  .portfolio-text {
-      font-size: 2.5rem;
   }
 }
 

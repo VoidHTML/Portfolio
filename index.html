@@ -7,21 +7,42 @@
     <title>PortFolio</title>
 </head>
 <body class="home-page">
+    <div class="background-animation" id="particles"></div>
     <nav>
-        <a href="index.html">PORTFOLIO</a>
-        <a href="about_me.html">ABOUT ME</a>
-        <a href="contact.html">CONTACT</a>
-        <a href="project.html">PROJECT</a>
-  </nav>
-  <div class="container">
-    <div class="left-content">
-        <h1 class="name" data-text="Votre Prénom">Manoël GARCIA</h1>
-        <p class="info">Etudiant universitaire de corte</p>
-    </div>
-    <div class="portfolio-box">
-        <span class="portfolio-text">PORTFOLIO</span>
-    </div>
-</div>
+        <a href="#home">Home</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#project">Project</a>
+    </nav>
+
+    <section id="home">
+        <div class="left-content">
+            <h1 class="name">Votre Prénom</h1>
+            <p class="info">Développeur Web Créatif</p>
+        </div>
+        <div class="portfolio-box">
+            <span class="portfolio-text">PORTFOLIO</span>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2>Portfolio Section</h2>
+    </section>
+
+    <section id="about">
+        <h2>About Section</h2>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Section</h2>
+    </section>
+
+    <section id="project">
+        <h2>Project Section</h2>
+    </section>
+
+    
 <script>
     function createParticles() {
         const particlesContainer = document.getElementById('particles');
@@ -30,26 +51,36 @@
         for (let i = 0; i < numberOfParticles; i++) {
             const particle = document.createElement('div');
             particle.className = 'particle';
-            
-            // Random size between 5 and 20 pixels
             const size = Math.random() * 15 + 5;
             particle.style.width = `${size}px`;
             particle.style.height = `${size}px`;
-            
-            // Random starting position
             particle.style.left = `${Math.random() * 100}%`;
             particle.style.top = `${Math.random() * 100}%`;
-            
-            // Random animation delay
             particle.style.animationDelay = `${Math.random() * 15}s`;
-            
             particlesContainer.appendChild(particle);
         }
     }
 
-    // Create particles when the page loads
     window.addEventListener('load', createParticles);
+
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        const aboutSection = document.querySelector('#about');
+        const currentScroll = window.scrollY;
+        const aboutOffset = aboutSection.offsetTop;
+
+        // Montre la navbar seulement après avoir défilé un peu et avant la section About
+        if (currentScroll > 100 && currentScroll < aboutOffset) {
+            nav.classList.add('visible');
+        } else {
+            nav.classList.remove('visible');
+        }
+
+        lastScrollTop = currentScroll;
+    });
 </script>
+
  
 </body>
 </html>
