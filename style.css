@@ -37,22 +37,37 @@ nav a:hover {
 html, body {
   width: 100%;
   height: 100vh;
-  overflow: hidden;
+
   background-color: #404040;
+}
+
+nav {
+  background-color: #808080;
+  padding: 1rem 0;
+  width: 100%;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .container {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 48px);
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 2rem;
-  gap: 4rem;
 }
 
 .left-content {
-  flex: 1;
-  padding-left: 10%;
+  margin-left: 10%;
 }
 
 .name {
@@ -60,25 +75,48 @@ html, body {
   color: #8b8ba7;
   margin-bottom: 1rem;
   position: relative;
+  opacity: 0;
+  animation: glitch-text 3s steps(30, end) forwards;
+}
+
+@keyframes glitch-text {
+  0% {
+      opacity: 0;
+      clip-path: inset(0 100% 0 0);
+      transform: translateX(-20px);
+  }
+  20% {
+      clip-path: inset(0 80% 0 0);
+      transform: translateX(-10px);
+  }
+  40% {
+      clip-path: inset(0 60% 0 0);
+      transform: translateX(-5px);
+  }
+  60% {
+      clip-path: inset(0 40% 0 0);
+      transform: translateX(-2px);
+  }
+  80% {
+      clip-path: inset(0 20% 0 0);
+      transform: translateX(-1px);
+  }
+  100% {
+      opacity: 1;
+      clip-path: inset(0 0 0 0);
+      transform: translateX(0);
+  }
 }
 
 .info {
   font-size: 1.25rem;
   color: #8b8ba7;
-  opacity: 0;
-  animation: typeWriter 2s steps(40) 1s forwards;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid #8b8ba7;
 }
 
 .portfolio-box {
   background-color: #1a1a2e;
   padding: 3rem 6rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
+  margin-right: 10%;
 }
 
 .portfolio-text {
@@ -86,27 +124,6 @@ html, body {
   font-size: 3.5rem;
   font-weight: bold;
   letter-spacing: 0.2em;
-  animation: pixelReveal 2s steps(20) forwards;
-}
-
-@keyframes pixelReveal {
-  0% {
-      clip-path: inset(100% 0 0 0);
-  }
-  100% {
-      clip-path: inset(0 0 0 0);
-  }
-}
-
-@keyframes typeWriter {
-  from {
-      width: 0;
-      opacity: 1;
-  }
-  to {
-      width: 100%;
-      opacity: 1;
-  }
 }
 
 @media (max-width: 768px) {
@@ -114,14 +131,20 @@ html, body {
       flex-direction: column;
       text-align: center;
       padding: 1rem;
-      gap: 2rem;
+  }
+
+  nav a {
+      margin: 0 0.5rem;
+      font-size: 0.9rem;
   }
 
   .left-content {
-      padding-left: 0;
+      margin-left: 0;
+      margin-bottom: 2rem;
   }
 
   .portfolio-box {
+      margin-right: 0;
       padding: 2rem 3rem;
   }
 
@@ -131,11 +154,6 @@ html, body {
 
   .portfolio-text {
       font-size: 2.5rem;
-  }
-
-  .info {
-      white-space: normal;
-      border-right: none;
   }
 }
 
