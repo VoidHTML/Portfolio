@@ -1,11 +1,4 @@
-
-.bold
-{
-  font-weight: bold;
-}
-
-
-.container {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -94,8 +87,8 @@ section {
   letter-spacing: 0.2em;
 }
 
-#portfolio {
-  background-color: #333;
+#presentation {
+  background-color:#cfcfcf;
 }
 
 #about {
@@ -103,7 +96,7 @@ section {
 }
 
 #contact {
-  background-color: #222;
+  background-color: #000000;
 }
 
 #project {
@@ -178,105 +171,83 @@ section {
   }
 }
 
+/*======================================================Presentation================================================================*/
 
-/*page project*/
-.container {
+.containerpresentation {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  min-height: 100vh;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 20px;
-  padding-top: 100px;
-  background-color: #444;
- 
+  flex-direction: column;
+  justify-content: center;
 }
 
-.card {
-  margin-top: 40px;
-    width: 300px;
-    background-color: #000000; 
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    padding-bottom: 60px;
-   
-    
+.title {
+  font-size: 2.5rem;
+  color: #444;
+  margin-bottom: 3rem;
+  letter-spacing: 2px;
 }
 
-.image-container {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
+.presentation {
+  margin-bottom: 2rem;
 }
 
-.image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.dev-title {
+  font-style: italic;
+  color: #666;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
-.text-content {
-    padding: 20px;
-    color: white;
-    font-size: 18px;
-    line-height: 1.4;
+.current-position {
+  font-weight: bold;
+  color: #555;
 }
 
-.button-card {
-  width: 165px;
-  height: 62px;
-  cursor: pointer;
-  color: #fff;
-  font-size: 17px;
-  border-radius: 1rem;
-  border: none;
-  position: relative;
-  background: #100720;
-  transition: 0.1s;
+.description {
+  margin: 1.5rem 0;
+  font-size: 1.1rem;
 }
 
-.button-card::after {
-  content: '';
-  width: 100%;
-  height: 100%;
-  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% );
-  filter: blur(15px);
-  z-index: -1;
-  position: absolute;
-  left: 0;
-  top: 0;
+.java-skills {
+  margin: 1.5rem 0;
 }
 
-.button-card:active {
-  transform: scale(0.9) rotate(3deg);
-  background: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% );
-  transition: 0.5s;
+.java {
+  font-weight: bold;
+  color: #e76f00;
 }
 
-@media screen and (min-width: 80rem) {
+.links {
+  margin-top: 2rem;
+}
+
+.links a {
+  color: #00bcd4;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.links a:hover {
+  color: #008ba3;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
   .container {
-    margin: 1em 2em;
-  }
-}
-
-
-@media screen and (max-width: 500px) {
-  .container {
-    margin: 0;
-  }
-
-  .card {
-      width: 100%;
-      background-color: #76c2b7; 
-      border-radius: 8px;
-      overflow: hidden;
-      position: relative;
-  
+      padding: 1rem;
   }
   
+  .title {
+      font-size: 2rem;
+  }
 }
 
-
-/*code de la page about me*/
+/*====================================================== about me ==================================================================*/
 
 .about-me {
   background-color:#444;
@@ -450,7 +421,211 @@ p {
   margin: 0;
 }
 
-  /*information contact*/ 
+/*===========================================================Parcours=========================================================*/
+
+#parcours {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.containerparcours {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: white;
+  grid-column: 1 / -1;
+  font-family: 'Courier New', monospace;
+}
+
+.section {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.titre-section {
+  color: #2d3436;
+  font-size: 18px;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #3498db;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.etape {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 3px solid #3498db;
+  transition: transform 0.2s ease;
+}
+
+.activites-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.activite {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 3px solid #3498db;
+  transition: all 0.2s ease;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.activite-contenu {
+  flex: 1;
+  min-width: 0;
+}
+
+.activite-image {
+  width: 120px;
+  height: 80px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.activite-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.activite:hover .activite-image img {
+  transform: scale(1.1);
+}
+
+.date, .periode-activite {
+  color: #3498db;
+  font-size: 14px;
+}
+
+.nom-etablissement, .titre-activite {
+  font-weight: bold;
+  color: #2d3436;
+  margin: 5px 0;
+  font-size: 15px;
+}
+
+.description {
+  font-size: 13px;
+  color: #636e72;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .containerparcours {
+      grid-template-columns: 1fr;
+  }
+
+  .activite {
+      flex-direction: column;
+  }
+
+  .activite-image {
+      width: 100%;
+      height: 120px;
+  }
+
+  body {
+      padding: 10px;
+  }
+}
+
+/*===========================================================Project===========================================================*/
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+  padding-top: 100px;
+  background-color: #444;
+ 
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  box-shadow: 0 0 0 5px #ffffff80;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card svg {
+  width: 48px;
+  fill: #333;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.card__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .card__content {
+  transform: rotateX(0deg);
+}
+
+.card__title {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  font-weight: 700;
+}
+
+.card:hover svg {
+  scale: 0;
+}
+
+.card__description {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #777;
+  line-height: 1.4;
+}
+
+/*===========================================================Contact===================================================*/
+
 .contact{
   background-color: #000000;
 }
@@ -659,4 +834,15 @@ p {
 
 #toggle:checked + .nav-button {
   background: white;
+}
+
+/*==================================================Footer======================================================*/
+
+footer {
+  background-color: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  bottom: 0;
+  width: 100%;
 }
