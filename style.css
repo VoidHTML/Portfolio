@@ -550,45 +550,105 @@ body.no-scroll {
   left: 0;
 }
 
+.skill-block {
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .skill {
+  margin-bottom: 25px;
   display: flex;
   align-items: center;
   gap: 20px;
-  width: 100%; /* Ajuste la largeur globale */
-  margin: 0 auto; /* Centre horizontalement */
 }
 
-
-.skill img {
-  width: 100px; /* Augmente la taille des icônes */
-  height: 100px; /* Correspond à la largeur */
-  border-radius: 5px;
-  object-fit: contain;
+.skill:last-child {
+  margin-bottom: 0;
 }
 
- 
+.skill-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: #2a2a2a;
+}
+
+.skill-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.skill-info {
+  flex: 1;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.skill-header h3 {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.percentage {
+  color: #4a90e2;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
 .progress-bar {
-  background-color: #ccc; /* Couleur de la barre de fond */
-  flex-grow: 1; /* La barre prend la largeur disponible */
-  height: 50px; /* Barres plus hautes */
-  border-radius: 25px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
   overflow: hidden;
   position: relative;
 }
 
 .progress {
-  background-color: #00ff00; /* Couleur de la barre de progression */
-  height: 100%; /* La hauteur doit correspondre à celle de la barre* */
-  width: 50%; /* Remplacez 50% par la largeur souhaitée */
-  transition: width 0.4s ease; /* Ajoute une animation fluide */
+  height: 100%;
+  background: linear-gradient(90deg, #4a90e2, #2962ff);
+  border-radius: 4px;
+  position: relative;
+  animation: fillBar 1.5s ease forwards;
 }
 
-.percentage {
-  font-size: 36px; /* Texte de pourcentage plus grand */
-  font-weight: bold;
-  color: white;
-  width: 50px;
-  text-align: center;
+.progress .glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  filter: blur(5px);
+  animation: glowingEffect 2s infinite;
+}
+
+@keyframes fillBar {
+  from { width: 0; }
+  to { width: var(--value); }
+}
+
+@keyframes glowingEffect {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(500%); }
+}
+
+/* Animation au survol */
+.skill:hover .progress {
+  opacity: 0.8;
+  transform: scaleY(1.2);
+  transition: all 0.3s ease;
 }
 
 /*===========================================================Parcours=========================================================*/
