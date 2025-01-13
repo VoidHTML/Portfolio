@@ -56,15 +56,15 @@
   <script>
    document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('nav');
+    const presentationSection = document.querySelector('#presentation');
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('nav a');
-    const homeHeight = 200; // Hauteur de la section home
 
     function checkNavPosition() {
-        const scrollPos = window.scrollY;
-        const navTop = homeHeight; // Position où la navbar doit devenir fixe
+        const presentationRect = presentationSection.getBoundingClientRect();
+        const navOffset = presentationRect.top;
 
-        if (scrollPos >= navTop) {
+        if (navOffset <= 0) {
             nav.classList.add('fixed');
         } else {
             nav.classList.remove('fixed');
@@ -72,10 +72,8 @@
 
         // Mise à jour de la section active
         sections.forEach((section) => {
-            const top = section.offsetTop - 60; // 60 est la hauteur de la navbar
-            const bottom = top + section.offsetHeight;
-
-            if (scrollPos >= top && scrollPos < bottom) {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 60 && rect.bottom > 60) {
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                     if (link.getAttribute('href') === `#${section.id}`) {
@@ -88,6 +86,7 @@
 
     window.addEventListener('scroll', checkNavPosition);
 });
+
   </script>
 
   <section id="home">
