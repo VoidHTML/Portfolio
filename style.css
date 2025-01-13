@@ -1155,3 +1155,179 @@ footer {
   bottom: 0;
   width: 100%;
 }
+
+/*===============================================Responsive=====================================================*/
+/* Media Queries Générales */
+@media (max-width: 1200px) {
+  .parcours-container,
+  .container,
+  .about-me,
+  .containerpresentation {
+      width: 95%;
+      padding: 20px;
+  }
+}
+
+/* Pour tablettes et écrans moyens */
+@media (max-width: 992px) {
+  /* Navigation */
+  nav {
+      padding: 15px;
+      gap: 20px;
+  }
+
+  nav a {
+      font-size: 14px;
+  }
+
+  /* Section Home */
+  .container2 .main-title {
+      font-size: 6rem;
+  }
+
+  .vision-title {
+      font-size: 1rem;
+  }
+
+  /* About Me */
+  .about_me {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+  }
+
+  .my_profil_picture {
+      width: 50%;
+  }
+
+  .information_profil {
+      width: 90%;
+  }
+
+  /* Parcours */
+  .parcours-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+  }
+
+  /* Projects */
+  .container {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Pour mobiles */
+@media (max-width: 768px) {
+  /* Navigation */
+  nav {
+      padding: 10px;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+
+  /* Section Home */
+  .container2 .main-title {
+      font-size: 4rem;
+  }
+
+  .container2 .description {
+      font-size: 1rem;
+  }
+
+  /* About Me */
+  .mes_info_perso {
+      flex-direction: column;
+  }
+
+  .info_box,
+  .info_box_large,
+  .info_box_medium {
+      width: 100%;
+      height: auto;
+      min-height: 120px;
+  }
+
+  /* Contact */
+  .contact-content {
+      flex-direction: column;
+  }
+
+  .contact-form,
+  .mountain-image {
+      width: 100%;
+  }
+
+  .mountain-image {
+      height: 300px;
+  }
+
+  /* Projects */
+  .container {
+      grid-template-columns: 1fr;
+  }
+
+  .card {
+      width: 100%;
+  }
+}
+
+/* Pour très petits écrans */
+@media (max-width: 480px) {
+  /* Section Home */
+  .container2 .main-title {
+      font-size: 3rem;
+  }
+
+  .vision-title {
+      font-size: 0.9rem;
+  }
+
+  /* About Me */
+  .my_profil_picture {
+      width: 80%;
+  }
+
+  /* Contact */
+  .contact-form h1 {
+      font-size: 24px;
+  }
+
+  /* Navigation */
+  nav a {
+      font-size: 12px;
+      padding: 8px;
+  }
+}
+
+/* Ajustements pour l'animation d'intro */
+@media (max-width: 768px) {
+  .mg-text {
+      font-size: 6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mg-text {
+      font-size: 4rem;
+  }
+}
+
+/* Ajustements généraux pour la hauteur sur mobile */
+@media (max-height: 700px) {
+  section {
+      padding: 60px 0;
+  }
+}
+
+/* Ajustements pour l'orientation paysage sur mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .container2 {
+      height: auto;
+      min-height: 100vh;
+  }
+
+  .contact-content {
+      height: auto;
+  }
+}
