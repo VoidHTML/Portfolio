@@ -13,34 +13,6 @@ body {
   background-color: #404040;
 }
 
-nav {
-  position: absolute; /* Commence en position absolute */
-  top: 100vh; /* Commence après la première section */
-  left: 0;
-  width: 100%;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  background-color: rgba(33, 33, 33, 0.95);
-  transition: background-color 0.3s ease;
-  z-index: 1000;
-}
-
-nav.sticky {
-  position: fixed;
-  top: 0;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 10px 20px;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
 /* Style de la navbar */
 nav {
   position: absolute;
