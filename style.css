@@ -550,109 +550,45 @@ body.no-scroll {
   left: 0;
 }
 
-/* Section compétences */
-.skill-block {
-  background: #282828;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 0;
+.skill {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%; /* Ajuste la largeur globale /
+  /*margin: 0 auto; / Centre horizontalement */
 }
 
-.skill-box {
-  width: 100%;
-  margin: 30px 0;
+
+.skill img {
+  width: 100px; /* Augmente la taille des icônes */
+  height: 100px; /* Correspond à la largeur */
+  border-radius: 5px;
+  object-fit: contain;
 }
 
-.skill-box:first-child {
-  margin-top: 0;
-}
-
-.skill-box:last-child {
-  margin-bottom: 0;
-}
-
-.skill-box .title {
-  display: block;
-  font-size: 14px;
-  font-weight: 600;
-  color: rgb(226, 226, 226);
-}
-
-.skill-bar {
-  height: 10px;
-  width: 100%;
-  border-radius: 6px;
-  margin-top: 10px;
-  background: rgba(236, 236, 236, 0.1);
-}
-
-.skill-per {
+ 
+.progress-bar {
+  background-color: #ccc; /* Couleur de la barre de fond */
+  flex-grow: 1; /* La barre prend la largeur disponible */
+  height: 50px; /* Barres plus hautes */
+  border-radius: 25px;
+  overflow: hidden;
   position: relative;
-  display: block;
-  height: 100%;
-  border-radius: 6px;
-  background: rgb(226, 226, 226);
-  animation: progress 0.4s ease-in-out forwards;
-  opacity: 0;
 }
 
-.skill-per.html {
-  width: 70%;
-  animation-delay: 0.1s;
+.progress {
+  background-color: #00ff00; /* Couleur de la barre de progression */
+  height: 100%; /* La hauteur doit correspondre à celle de la barre* /
+  width: 50%; /* Remplacez 50% par la largeur souhaitée */
+  transition: width 0.4s ease; /* Ajoute une animation fluide */
 }
 
-.skill-per.unreal {
-  width: 50%;
-  animation-delay: 0.1s;
-}
-
-.skill-per.blender {
-  width: 60%;
-  animation-delay: 0.2s;
-}
-
-@keyframes progress {
-  0% {
-      width: 0;
-      opacity: 1;
-  }
-  100% {
-      opacity: 1;
-  }
-}
-
-.tooltip {
-  position: absolute;
-  right: -14px;
-  top: -28px;
-  font-size: 9px;
+.percentage {
+  font-size: 36px; /* Texte de pourcentage plus grand */
   font-weight: bold;
-  color: rgb(0, 0, 0);
-  padding: 2px 6px;
-  border-radius: 3px;
-  background: rgb(226, 226, 226);
-  z-index: 1;
-}
-
-.tooltip::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -2px;
-  height: 10px;
-  width: 10px;
-  z-index: -1;
-  background-color: rgb(226, 226, 226);
-  transform: translateX(-50%) rotate(45deg);
-}
-
-/* Styles généraux */
-h3 {
-  margin-top: 0;
-}
-
-p {
-  margin: 0;
+  color: white;
+  width: 50px;
+  text-align: center;
 }
 
 /*===========================================================Parcours=========================================================*/
