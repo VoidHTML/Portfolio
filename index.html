@@ -6,7 +6,43 @@
     <link href="style.css" rel="stylesheet">
     <title>PortFolio</title>
 </head>
-<body>
+<body class="no-scroll">
+    <div class="intro-screen">
+        <div class="mg-logo">
+            <div class="mg-letter">M</div>
+            <div class="mg-letter">G</div>
+            <div class="logo-line"></div>
+        </div>
+    </div>
+    <script>
+        // Script pour réactiver le scroll après l'animation
+        setTimeout(() => {
+            document.body.classList.remove('no-scroll');
+        }, 3500); // 3.5 secondes (un peu plus que la durée de l'animation pour être sûr)
+    </script>
+<div class="background-animation" id="particles"></div>
+    <script>
+        // Création des particules
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = Math.random() * 5 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.top = Math.random() * 100 + 'vh';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+    
+        // Exécuter après le chargement du DOM
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+        });
+    </script>
+
   <div class="background-animation" id="particles"></div>
   <nav>
       <a href="#home">Home</a>
@@ -18,8 +54,8 @@
 
   <section id="home">
     <div class="left-content">
-        <h1 class="name">Votre Prénom</h1>
-        <p class="info">Développeur Web Créatif</p>
+        <h1 class="name">Manoël GARCIA</h1>
+        <p class="info">Etudiant universitaire</p>
     </div>
     <div class="portfolio-box">
         <span class="portfolio-text">PORTFOLIO</span>
@@ -48,7 +84,7 @@
         </p>
 
         <p class="description">
-            Je suis aussi
+            Je suis aussi un étudiant sérieux et stricte avec le travaille
         </p>
 
         <p class="java-skills">
@@ -65,67 +101,118 @@
 </section>
 
 <section id="about">
-  <div class="about-me">
-    <div class="about_me">
-        <div class="my_profil_picture">
-            <img src="img/Ma_photo_de_profil.png" alt="Manoël Garcia">
-        </div>
-        <div class="information_profil">
-            <h1>A propos de moi</h1>
-            <div class="mes_info_perso">
-                <h3>Mes info perso</h3>
-                <p>Age: 18 ans</p>
-                <p>Education: BUT MMI</p>
-                <p>Location: Ajaccio</p>
+    <div class="about-me">
+        <div class="about_me">
+            <div class="my_profil_picture">
+                <img src="img/Ma_photo_de_profil.png" alt="Manoël Garcia">
             </div>
-            <div class="Background">
-                <h3>Background</h3>
-                <p>Étudiant universitaire de Corte - BUT MMI 1</p>
+            <div class="information_profil">
+                <h1>A propos de moi</h1>
+
+                <div class="mes_info_perso">
+                    <!-- Age -->
+                    <div class="info_box">
+                        <div class="info_inner">
+                            <div class="info_text">age</div>
+                            <div class="info_icon">18</div>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="info_box">
+                        <div class="info_inner">
+                            <div class="info_text">école</div>
+                            <div class="info_icon">MMI</div>
+                        </div>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="info_box location">
+                        <div class="info_inner">
+                            <div class="info_front">
+                                <div class="info_text">location</div>
+                                <div class="info_icon">Ajaccio</div>
+                            </div>
+                            <div class="info_back">
+                                <div class="map-container">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48059.71944500068!2d8.714637624730645!3d41.91893941843779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12da1b59add3ded1%3A0x40819a5fd97a940!2sAjaccio%2C%20France!5e0!3m2!1sfr!2sfr!4v1704811952085!5m2!1sfr!2sfr"
+                                        width="100%"
+                                        height="100%"
+                                        style="border:0;"
+                                        allowfullscreen=""
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        class="map-frame">
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Background Card -->
+                    <div class="info_box info_box_large">
+                        <div class="info_inner">
+                            <div class="info_text">background</div>
+                            <div class="info_content">Étudiant universitaire de Corte - BUT MMI 1</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nouvelle rangée pour Goals et Frustration -->
+                <div class="mes_info_perso">
+                    <!-- Goals Card -->
+                    <div class="info_box info_box_medium">
+                        <div class="info_inner">
+                            <div class="info_text">goals</div>
+                            <div class="info_content">Devenir un développeur de jeux-vidéo en passant à l'école d'artfx et le BUT MMI</div>
+                        </div>
+                    </div>
+
+                    <!-- Frustration Card -->
+                    <div class="info_box info_box_medium">
+                        <div class="info_inner">
+                            <div class="info_text">frustration</div>
+                            <div class="info_content">Je ne supporte pas que j'intervienne pour rien</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Section -->
+                <div class="skill-block">
+                    <div class="skill-box">
+                        <span class="title">Unreal Engine</span>
+                        <div class="skill-bar">
+                            <span class="skill-per unreal">
+                                <span class="tooltip">50%</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="skill-box">
+                        <span class="title">Blender</span>
+                        <div class="skill-bar">
+                            <span class="skill-per blender">
+                                <span class="tooltip">60%</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="skill-box">
+                        <span class="title">HTML</span>
+                        <div class="skill-bar">
+                            <span class="skill-per html">
+                                <span class="tooltip">70%</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="goals_fru">
-                <div class="goals">
-                    <h3>Goals</h3>
-                    <p>Devenir un développeur de jeux-vidéo en passant à l'école d'artfx et le BUT MMI</p>
-                </div>
-                <div class="frustration">
-                    <h3>Frustration</h3>
-                    <p>Je ne supporte pas que j'intervienne pour rien</p>
-                </div>
-            </div>
-         <div class="skill-block"></div>
-            <div class="skill-box">
-                <span class="title">Unreal Engine</span>
-            
-                <div class="skill-bar">
-                  <span class="skill-per unreal">
-                    <span class="tooltip">50%</span>
-                  </span>
-                </div>
-              </div>
-            
-              <div class="skill-box">
-                <span class="title">Blender</span>
-            
-                <div class="skill-bar">
-                  <span class="skill-per blender">
-                    <span class="tooltip">60%</span>
-                  </span>
-                </div>
-              </div>
-              <div class="skill-box">
-                <span class="title">HTML</span>
-            
-                <div class="skill-bar">
-                  <span class="skill-per html">
-                    <span class="tooltip">70%</span>
-                  </span>
-                </div>
-            </div>
-         </div>
         </div>
     </div>
-</div>     
 </section>
+  
+          
 
 <section id="parcours">
   <div class="containerparcours">
@@ -193,7 +280,7 @@
     <div class="container">
       <H1>Bien que je suis qu'en premiere année de BUT, j'ai eu des projets personel et educatif</H1>
         <div class="card">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg>
+            <img src="img/Unreal-Engine_04.jpg" alt=""> 
             <div class="card__content">
               <p class="card__title">Card Title</p>
               <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
