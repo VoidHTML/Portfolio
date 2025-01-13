@@ -653,130 +653,189 @@ p {
 
 /*===========================================================Parcours=========================================================*/
 
+/* Styles pour la section Parcours */
 #parcours {
-  max-width: 1000px;
-  margin: auto;
+  background: #1a1a1a;
+  padding: 80px 0;
+  min-height: 100vh;
 }
 
-.containerparcours {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+.parcours-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-h1 {
+.parcours-container h1 {
   text-align: center;
-  margin-bottom: 30px;
-  font-size: 24px;
-  color: white;
-  grid-column: 1 / -1;
-  font-family: 'Courier New', monospace;
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  position: relative;
 }
 
-.section {
-  background: white;
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.titre-section {
-  color: #2d3436;
-  font-size: 18px;
-  margin-bottom: 15px;
-  padding-bottom: 5px;
-  border-bottom: 2px solid #3498db;
+.parcours-container h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #4a90e2, #2962ff);
 }
 
 .timeline {
+  position: relative;
+  padding: 40px 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, #4a90e2, #2962ff);
+}
+
+.timeline-section {
+  margin-bottom: 100px;
+  position: relative;
+}
+
+.timeline-date {
+  position: absolute;
+  width: 200px;
+  padding: 20px;
+  background: #2a2a2a;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.timeline-date.left {
+  left: 0;
+}
+
+.timeline-date.right {
+  right: 0;
+}
+
+.timeline-date h3 {
+  color: #4a90e2;
+  margin-bottom: 10px;
+}
+
+.timeline-date span {
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.timeline-content {
+  margin-left: 50%;
+  padding-left: 60px;
+  padding-right: 20px;
+}
+
+.timeline-card, .activity-card {
+  background: #2a2a2a;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.timeline-card:hover, .activity-card:hover {
+  transform: translateY(-5px);
+}
+
+.timeline-card h4, .activity-card h4 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.timeline-card p, .activity-card p {
+  color: #bbb;
+  margin-bottom: 15px;
+}
+
+.timeline-details {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
 }
 
-.etape {
-  background: #f8f9fa;
-  padding: 15px;
-  border-radius: 8px;
-  border-left: 3px solid #3498db;
-  transition: transform 0.2s ease;
+.tag {
+  background: #4a90e2;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
 }
 
-.activites-list {
+.activity-card {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
-.activite {
-  background: #f8f9fa;
-  padding: 15px;
-  border-radius: 8px;
-  border-left: 3px solid #3498db;
-  transition: all 0.2s ease;
-  display: flex;
-  gap: 15px;
-  align-items: center;
-}
-
-.activite-contenu {
-  flex: 1;
-  min-width: 0;
-}
-
-.activite-image {
-  width: 120px;
-  height: 80px;
-  border-radius: 6px;
+.activity-image {
+  width: 150px;
+  height: 100px;
   overflow: hidden;
-  flex-shrink: 0;
+  border-radius: 8px;
 }
 
-.activite-image img {
+.activity-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
 
-.activite:hover .activite-image img {
+.activity-card:hover .activity-image img {
   transform: scale(1.1);
 }
 
-.date, .periode-activite {
-  color: #3498db;
-  font-size: 14px;
+.activity-info {
+  flex: 1;
 }
 
-.nom-etablissement, .titre-activite {
-  font-weight: bold;
-  color: #2d3436;
-  margin: 5px 0;
-  font-size: 15px;
-}
-
-.description {
-  font-size: 13px;
-  color: #636e72;
-  line-height: 1.4;
+.period {
+  color: #4a90e2;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
-  .containerparcours {
-      grid-template-columns: 1fr;
+  .timeline::before {
+      left: 30px;
   }
 
-  .activite {
+  .timeline-date {
+      position: relative;
+      width: 100%;
+      margin-bottom: 30px;
+  }
+
+  .timeline-date.left, .timeline-date.right {
+      left: 0;
+      right: auto;
+  }
+
+  .timeline-content {
+      margin-left: 0;
+      padding-left: 60px;
+  }
+
+  .activity-card {
       flex-direction: column;
   }
 
-  .activite-image {
+  .activity-image {
       width: 100%;
-      height: 120px;
-  }
-
-  body {
-      padding: 10px;
+      height: 200px;
   }
 }
 
