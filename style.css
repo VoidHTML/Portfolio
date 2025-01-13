@@ -578,7 +578,7 @@ body.no-scroll {
 
 .progress {
   background-color: #00ff00; /* Couleur de la barre de progression */
-  height: 100%; /* La hauteur doit correspondre à celle de la barre* /
+  height: 100%; /* La hauteur doit correspondre à celle de la barre* */
   width: 50%; /* Remplacez 50% par la largeur souhaitée */
   transition: width 0.4s ease; /* Ajoute une animation fluide */
 }
