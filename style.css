@@ -14,39 +14,62 @@ body {
 }
 
 nav {
-  position: fixed;
-  top: 0;
+  position: absolute; /* Commence en position absolute */
+  top: 100vh; /* Commence après la première section */
+  left: 0;
   width: 100%;
   padding: 20px;
   display: flex;
   justify-content: center;
   gap: 30px;
-  background-color: grey;
-  z-index: 1;
-  transform: translateY(-100%);
-  transition: transform 0.3s ease-in-out;
+  background-color: rgba(33, 33, 33, 0.95);
+  transition: background-color 0.3s ease;
+  z-index: 1000;
 }
 
-nav.visible {
-  transform: translateY(0);
+nav.sticky {
+  position: fixed;
+  top: 0;
 }
 
 nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  padding: 10px 20px;
+  position: relative;
   transition: color 0.3s ease;
 }
 
-nav a:hover {
-  color: #4CAF50;
+/* Indicateur de section active */
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4a90e2, #2962ff);
+  transition: width 0.3s ease;
 }
 
+nav a:hover::after {
+  width: 80%;
+}
+
+nav a.active {
+  color: #4a90e2;
+}
+
+nav a.active::after {
+  width: 80%;
+}
+
+/* Pour éviter le chevauchement avec la navbar fixe */
 section {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
 #home {
