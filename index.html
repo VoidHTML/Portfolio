@@ -53,64 +53,39 @@
   </nav>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+   document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('nav');
-    const navLinks = document.querySelectorAll('nav a');
     const sections = document.querySelectorAll('section');
-    const presentationSection = document.querySelector('#presentation');
+    const navLinks = document.querySelectorAll('nav a');
+    const homeHeight = 200; // Hauteur de la section home
 
-    // Fonction pour vérifier la position de la navbar
     function checkNavPosition() {
-        const presentationTop = presentationSection.getBoundingClientRect().top;
-        
-        if (presentationTop <= 0) {
-            nav.classList.add('sticky');
+        const scrollPos = window.scrollY;
+        const navTop = homeHeight; // Position où la navbar doit devenir fixe
+
+        if (scrollPos >= navTop) {
+            nav.classList.add('fixed');
         } else {
-            nav.classList.remove('sticky');
+            nav.classList.remove('fixed');
         }
-    }
 
-    // Fonction pour mettre à jour la section active
-    function updateActiveSection() {
-        const currentScrollPos = window.scrollY;
+        // Mise à jour de la section active
+        sections.forEach((section) => {
+            const top = section.offsetTop - 60; // 60 est la hauteur de la navbar
+            const bottom = top + section.offsetHeight;
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - nav.offsetHeight;
-            const sectionBottom = sectionTop + section.offsetHeight;
-
-            if (currentScrollPos >= sectionTop && currentScrollPos < sectionBottom) {
-                // Retirer la classe active de tous les liens
-                navLinks.forEach(link => link.classList.remove('active'));
-                
-                // Ajouter la classe active au lien correspondant
-                const correspondingLink = document.querySelector(`nav a[href="#${section.id}"]`);
-                if (correspondingLink) {
-                    correspondingLink.classList.add('active');
-                }
+            if (scrollPos >= top && scrollPos < bottom) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${section.id}`) {
+                        link.classList.add('active');
+                    }
+                });
             }
         });
     }
 
-    // Écouter le scroll pour les deux fonctions
-    window.addEventListener('scroll', () => {
-        checkNavPosition();
-        updateActiveSection();
-    });
-
-    // Navigation douce lors du clic sur les liens
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            const navHeight = nav.offsetHeight;
-
-            window.scrollTo({
-                top: targetSection.offsetTop - navHeight,
-                behavior: 'smooth'
-            });
-        });
-    });
+    window.addEventListener('scroll', checkNavPosition);
 });
   </script>
 
