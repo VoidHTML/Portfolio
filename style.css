@@ -554,8 +554,8 @@ body.no-scroll {
   display: flex;
   align-items: center;
   gap: 20px;
-  width: 100%; /* Ajuste la largeur globale /
-  /*margin: 0 auto; / Centre horizontalement */
+  width: 100%; /* Ajuste la largeur globale */
+  margin: 0 auto; /* Centre horizontalement */
 }
 
 
