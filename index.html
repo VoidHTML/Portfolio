@@ -20,71 +20,24 @@
             document.body.classList.remove('no-scroll');
         }, 3500); // 3.5 secondes (un peu plus que la durée de l'animation pour être sûr)
     </script>
-<div class="background-animation" id="particles"></div>
-    <script>
-        // Création des particules
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.width = Math.random() * 5 + 'px';
-                particle.style.height = particle.style.width;
-                particle.style.left = Math.random() * 100 + 'vw';
-                particle.style.top = Math.random() * 100 + 'vh';
-                particle.style.animationDelay = Math.random() * 5 + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
-    
-        // Exécuter après le chargement du DOM
-        document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
-        });
-    </script>
 
-  <div class="background-animation" id="particles"></div>
-  <nav>
-      <a href="#home">Home</a>
-      <a href="#presentation">Présentation</a>
-      <a href="#about">About</a>
-      <a href="#parcours">Parcours</a>
-      <a href="#project">Project</a>
-      <a href="#contact">Contact</a>
-  </nav>
 
   <script>
    document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('nav');
     const presentationSection = document.querySelector('#presentation');
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('nav a');
 
-    function checkNavPosition() {
+    window.addEventListener('scroll', () => {
         const presentationRect = presentationSection.getBoundingClientRect();
-        const navOffset = presentationRect.top;
-
-        if (navOffset <= 0) {
-            nav.classList.add('fixed');
+        
+        if (presentationRect.top <= 0) {
+            nav.style.position = 'fixed';
+            nav.style.top = '0';
         } else {
-            nav.classList.remove('fixed');
+            nav.style.position = 'absolute';
+            nav.style.top = '0';
         }
-
-        // Mise à jour de la section active
-        sections.forEach((section) => {
-            const rect = section.getBoundingClientRect();
-            if (rect.top <= 60 && rect.bottom > 60) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${section.id}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    }
-
-    window.addEventListener('scroll', checkNavPosition);
+    });
 });
 
   </script>
@@ -111,6 +64,16 @@
     </script>
 
 <section id="presentation">
+    
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#presentation">Présentation</a>
+        <a href="#about">About</a>
+        <a href="#parcours">Parcours</a>
+        <a href="#project">Project</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
   <div class="containerpresentation">
     <h1 class="title">PRÉSENTATION</h1>
     
