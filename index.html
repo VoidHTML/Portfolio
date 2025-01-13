@@ -52,6 +52,68 @@
       <a href="#contact">Contact</a>
   </nav>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.querySelector('nav');
+    const navLinks = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('section');
+    const presentationSection = document.querySelector('#presentation');
+
+    // Fonction pour vérifier la position de la navbar
+    function checkNavPosition() {
+        const presentationTop = presentationSection.getBoundingClientRect().top;
+        
+        if (presentationTop <= 0) {
+            nav.classList.add('sticky');
+        } else {
+            nav.classList.remove('sticky');
+        }
+    }
+
+    // Fonction pour mettre à jour la section active
+    function updateActiveSection() {
+        const currentScrollPos = window.scrollY;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - nav.offsetHeight;
+            const sectionBottom = sectionTop + section.offsetHeight;
+
+            if (currentScrollPos >= sectionTop && currentScrollPos < sectionBottom) {
+                // Retirer la classe active de tous les liens
+                navLinks.forEach(link => link.classList.remove('active'));
+                
+                // Ajouter la classe active au lien correspondant
+                const correspondingLink = document.querySelector(`nav a[href="#${section.id}"]`);
+                if (correspondingLink) {
+                    correspondingLink.classList.add('active');
+                }
+            }
+        });
+    }
+
+    // Écouter le scroll pour les deux fonctions
+    window.addEventListener('scroll', () => {
+        checkNavPosition();
+        updateActiveSection();
+    });
+
+    // Navigation douce lors du clic sur les liens
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            const navHeight = nav.offsetHeight;
+
+            window.scrollTo({
+                top: targetSection.offsetTop - navHeight,
+                behavior: 'smooth'
+            });
+        });
+    });
+});
+  </script>
+
   <section id="home">
     <div class="left-content">
         <h1 class="name">Manoël GARCIA</h1>
