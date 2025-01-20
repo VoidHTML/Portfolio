@@ -849,6 +849,7 @@ body.no-scroll {
 }
 
 /*===========================================================Project===========================================================*/
+
 .container {
   width: 100%;
   max-width: 800px;  /* Réduit la largeur maximale pour un meilleur alignement */
