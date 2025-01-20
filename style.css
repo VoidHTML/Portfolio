@@ -392,7 +392,6 @@ body.no-scroll {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  background-color: #000;
 }
 
 .information_profil h1 {
