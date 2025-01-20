@@ -851,13 +851,13 @@ body.no-scroll {
 /*===========================================================Project===========================================================*/
 .container {
   width: 100%;
+  max-width: 800px;  /* Réduit la largeur maximale pour un meilleur alignement */
   display: flex;
-  justify-content: space-around;
-  flex-direction: row;  /* Au lieu de column */
-  flex-wrap: wrap;
-  gap: 40px;  /* Espacement entre les cartes */
+  justify-content: center;  /* Centre le contenu horizontalement */
+  flex-direction: column;   /* Empile les cartes verticalement */
+  align-items: center;      /* Centre les cartes horizontalement */
+  gap: 40px;               /* Espacement vertical entre les cartes */
   padding: 40px 0;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
