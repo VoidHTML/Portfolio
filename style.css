@@ -862,11 +862,10 @@ body.no-scroll {
 }
 
 #project {
-  background-color: #161616;
+  background: #161616;
+  padding: 80px 20px;
   min-height: 100vh;
-  padding-top: 60px;
   display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
@@ -876,7 +875,7 @@ body.no-scroll {
   width: 100%;
 }
 
-.project-container h1 {
+.project-container > h1 {
   text-align: center;
   color: #fff;
   font-size: 3rem;
@@ -886,7 +885,7 @@ body.no-scroll {
   padding-bottom: 20px;
 }
 
-.project-container h1::after {
+.project-container > h1::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -897,13 +896,6 @@ body.no-scroll {
   background: linear-gradient(90deg, #4a90e2, #2962ff);
 }
 
-.project-container .container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  padding: 20px;
-}
 .card {
   position: relative;
   width: 300px;
