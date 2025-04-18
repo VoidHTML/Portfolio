@@ -13,7 +13,22 @@
             document.body.classList.remove('no-scroll');
         }, 3500); // 3.5 secondes (un peu plus que la durée de l'animation pour être sûr)
     </script>
-
+<div class="background-animation" id="particles"></div>
+    <script>
+        // Création des particules
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = Math.random() * 5 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.top = Math.random() * 100 + 'vh';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
     
         // Exécuter après le chargement du DOM
         document.addEventListener('DOMContentLoaded', () => {
