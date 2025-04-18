@@ -1,59 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
     <title>PortFolio</title>
 </head>
-<body class="no-scroll">
-    <script>
-        // Script pour réactiver le scroll après l'animation
-        setTimeout(() => {
-            document.body.classList.remove('no-scroll');
-        }, 3500); // 3.5 secondes (un peu plus que la durée de l'animation pour être sûr)
-    </script>
-<div class="background-animation" id="particles"></div>
-    <script>
-        // Création des particules
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.width = Math.random() * 5 + 'px';
-                particle.style.height = particle.style.width;
-                particle.style.left = Math.random() * 100 + 'vw';
-                particle.style.top = Math.random() * 100 + 'vh';
-                particle.style.animationDelay = Math.random() * 5 + 's';
-                particlesContainer.appendChild(particle);
-            }
+<body>
+  <script>
+   document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.querySelector('nav');
+    const presentationSection = document.querySelector('#presentation');
+
+    window.addEventListener('scroll', () => {
+        const presentationRect = presentationSection.getBoundingClientRect();
+        
+        if (presentationRect.top <= 0) {
+            nav.style.position = 'fixed';
+            nav.style.top = '0';
+        } else {
+            nav.style.position = 'absolute';
+            nav.style.top = '0';
         }
-    
-        // Exécuter après le chargement du DOM
-        document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
-        });
-    </script>
-
-  <div class="background-animation" id="particles"></div>
-  <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#parcours">Parcours</a>
-      <a href="#project">Project</a>
-      <a href="#contact">Contact</a>
-  </nav>
-
-  <section id="home">
+    });
+});
+  </script>
+<header role="banner">
+<section id="home">
     <div class="left-content">
         <h1 class="name">Manoël GARCIA</h1>
-        <p class="info">Etudiant universitaire</p>
+        <p class="info">Étudiant universitaire</p>
     </div>
     <div class="portfolio-box">
-        <span class="portfolio-text">PORTFOLIO</span>
+    <a href="login.php" class="portfolio-text btn-animate login-btn">PORTFOLIO</a>
     </div>
 </section>
+</header>
 
 <script>
     window.addEventListener('scroll', () => {
@@ -66,41 +48,110 @@
     });
     </script>
 
-<section id="presentation">
+<section id="presentation" role="region" aria-label="Présentation">
+<main role="main">
+    <nav role="navigation" aria-label="Menu principal">
+    <a href="#home">Home</a>
+    <a href="#presentation">Présentation</a>
+    <a href="#about">About me</a>
+    <a href="#parcours">Parcours</a>
+    <a href="#project">Project</a>
+    <a href="#contact">Contact</a>
+    </nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.querySelector('nav');
+    const presentationSection = document.querySelector('#presentation');
+    const navLinks = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('section');
+
+    // Fonction pour mettre à jour la position de la navbar et les liens actifs
+    function updateNav() {
+        const presentationRect = presentationSection.getBoundingClientRect();
+        
+        // Gestion de la position fixe/absolute
+        if (presentationRect.top <= 0) {
+            nav.style.position = 'fixed';
+            nav.style.top = '0';
+        } else {
+            nav.style.position = 'absolute';
+            nav.style.top = '0';
+        }
+
+        // Mise à jour du lien actif
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            const id = section.getAttribute('id');
+            
+            // On considère une section visible si son haut est près du haut de l'écran
+            if (rect.top <= 150 && rect.bottom >= 150) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }
+
+    // Écouteur de scroll
+    window.addEventListener('scroll', updateNav);
+
+    // Navigation douce
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            const navHeight = nav.offsetHeight;
+
+            window.scrollTo({
+                top: targetSection.offsetTop - navHeight,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Appel initial pour définir l'état correct
+    updateNav();
+});
+</script>
+
   <div class="containerpresentation">
     <h1 class="title">PRÉSENTATION</h1>
     
     <div class="presentation">
         <p class="dev-title">
-            Actuellement jeune étudiant de corte qui passe son Bachelor universitaire technologique, en 
-            <span class="current-position">BUT MMI 1</span>.
+           Actuellement jeune étudiant de corte qui passe son Bachelor universitaire technologique, en BUT MMI 1. 
         </p>
 
         <p class="description">
-            Je suis aussi un étudiant sérieux et stricte avec le travaille
+           Je suis aussi un étudiant sérieux et stricte avec le travail.
         </p>
 
         <p class="java-skills">
-            Je m'initie aussi avec des moniteur de creation de jeux vidéo comme <span class="java">Unreal Engine et Blender</span>
-            , ce qui me permet d'apprendre la 3D
+           Je m'initie aussi avec des moniteurs de créations de jeux vidéo comme Unreal Engine et Blender , ce qui me permet d'apprendre la 3D 
         </p>
 
         <div class="links">
-            <p>J'ai quelques projets intéressants <a href="#" class="view-projects">à voir</a>.</p>
-            <p>Vous souhaitez avoir mon CV au format PDF c'est par <a href="#" class="download-cv">ici</a>.</p>
+           <p>J'ai quelques projets intéressants <a href="#project" class="view-projects">à voir</a>.</p>
+           <p>Vous souhaitez avoir mon CV au format PDF c'est par <a href="documents/Manoël_GARCIA_CV.pdf" class="download-cv" download>ici</a>.</p>
         </div>
     </div>
 </div>
+
+</main>
 </section>
 
-<section id="about">
-    <div class="about-me">
+<section id="about" role="region" aria-label="À propos">
+<main role="main">
         <div class="about_me">
             <div class="my_profil_picture">
-                <img src="img/Ma_photo_de_profil.png" alt="Manoël Garcia">
+                <img src="img/Ma_photo_de_profil.jpg" alt="Manoël Garcia">
             </div>
             <div class="information_profil">
-                <h1>A propos de moi</h1>
 
                 <div class="mes_info_perso">
                     <!-- Age -->
@@ -115,7 +166,7 @@
                     <div class="info_box">
                         <div class="info_inner">
                             <div class="info_text">école</div>
-                            <div class="info_icon">MMI</div>
+                            <div class="info_icon">Corte</div>
                         </div>
                     </div>
 
@@ -129,14 +180,16 @@
                             <div class="info_back">
                                 <div class="map-container">
                                     <iframe
+                                        aria-label="carte google d'Ajaccio"   
                                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48059.71944500068!2d8.714637624730645!3d41.91893941843779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12da1b59add3ded1%3A0x40819a5fd97a940!2sAjaccio%2C%20France!5e0!3m2!1sfr!2sfr!4v1704811952085!5m2!1sfr!2sfr"
-                                        width="100%"
-                                        height="100%"
+                                        width="100"
+                                        height="100"
                                         style="border:0;"
-                                        allowfullscreen=""
+                                        allowfullscreen=""  
                                         loading="lazy"
                                         referrerpolicy="no-referrer-when-downgrade"
                                         class="map-frame">
+                                        
                                     </iframe>
                                 </div>
                             </div>
@@ -166,174 +219,193 @@
                     <div class="info_box info_box_medium">
                         <div class="info_inner">
                             <div class="info_text">frustration</div>
-                            <div class="info_content">Je ne supporte pas que j'intervienne pour rien</div>
+                            <div class="info_content">Je ne supporte pas les interviention inutile.</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Skills Section -->
                 <div class="skill-block">
-                    <div class="skill-box">
-                        <span class="title">Unreal Engine</span>
-                        <div class="skill-bar">
-                            <span class="skill-per unreal">
-                                <span class="tooltip">50%</span>
-                            </span>
+                    <div class="skill">
+                        <div class="skill-icon">
+                            <img src="img/Blender_logo.jpg" alt="Blender Icon">
+                        </div>
+                        <div class="skill-info">
+                            <div class="skill-header">
+                                <h2>Blender</h2>
+                                <span class="percentage">65%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" data-value="65">
+                                    <div class="glow"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="skill-box">
-                        <span class="title">Blender</span>
-                        <div class="skill-bar">
-                            <span class="skill-per blender">
-                                <span class="tooltip">60%</span>
-                            </span>
+                    <div class="skill">
+                        <div class="skill-icon">
+                            <img src="img/photoshop_logo.jpg" alt="Photoshop Icon">
                         </div>
-                    </div>
-
-                    <div class="skill-box">
-                        <span class="title">HTML</span>
-                        <div class="skill-bar">
-                            <span class="skill-per html">
-                                <span class="tooltip">70%</span>
-                            </span>
+                        <div class="skill-info">
+                            <div class="skill-header">
+                                <h2>Photoshop</h2>
+                                <span class="percentage">75%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" data-value="75">
+                                    <div class="glow"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const progressBars = document.querySelectorAll('.progress');
+    progressBars.forEach(bar => {
+        const value = bar.dataset.value;
+        bar.style.setProperty('--value', value + '%');
+    });
+ });
+    </script>
+  </main>        
 </section>
   
           
 
-<section id="parcours">
-  <div class="containerparcours">
-      <h1>Mon Parcours Académique</h1>
-      
-      <!-- Section Formation -->
-      <div class="section">
-          <h2 class="titre-section">Formation</h2>
-          <div class="timeline">
-              <div class="etape">
-                  <div class="date">2022 - 2024</div>
-                  <div class="nom-etablissement">Lycée Laetitia Bonaparte</div>
-                  <div class="description">
-                      Diplôme obtenu: Baccalauréat technologique
-                      Formation STI2D
-                  </div>
-              </div>
-
-              <div class="etape">
-                  <div class="date">2018 - 2022</div>
-                  <div class="nom-etablissement">Collège Laetitia Bonaparte</div>
-                  <div class="description">
-                      Diplôme obtenu : Brevet des collèges
-                  </div>
-              </div>
-          </div>
-      </div>
-
-      <!-- Section Activités -->
-      <div class="section">
-          <h2 class="titre-section">Activités Extra-scolaires</h2>
-          <div class="activites-list">
-              <div class="activite">
-                  <div class="activite-contenu">
-                      <div class="titre-activite">Association Sportive</div>
-                      <div class="periode-activite">2022 - 2024</div>
-                      <div class="description">
-                          Violoniste de niveaux cycle 3
-                      </div>
-                  </div>
-                  <div class="activite-image">
-                      <img src="img/mahbod-issaiy-2feb42c2-1d2b-4aa3-83ce-95ef02bff5ac.jpg" alt="Association Sportive">
-                  </div>
-              </div>
-
-              <div class="activite">
-                  <div class="activite-contenu">
-                      <div class="titre-activite">Club Informatique</div>
-                      <div class="periode-activite">2022 - 2024</div>
-                      <div class="description">
-                          Diplome du musicien independant(cem) en percussion
-                      </div>
-                  </div>
-                  <div class="activite-image">
-                      <img src="img/5b3c854aa8f72eacac29b7a4.w800.jpg" alt="Club Informatique">
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-    
-</section>
-
-<section id="project">
-    <div class="container">
-      <H1>Bien que je suis qu'en premiere année de BUT, j'ai eu des projets personel et educatif</H1>
-        <div class="card">
-            <img src="img/Unreal-Engine_04.jpg" alt=""> 
-            <div class="card__content">
-              <p class="card__title">Unreal Engine</p>
-              <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-            </div>
-          </div>
-          <div class="card">
-            <svg xmlns="im" viewBox="0 0 24 24"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg>
-            <div class="card__content">
-              <p class="card__title">Card Title</p>
-              <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="img/Blender_logo.jpg" alt=""> 
-            <div class="card__content">
-              <p class="card__title">Blender</p>
-              <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="img/photoshop_logo.jpg" alt=""> 
-            <div class="card__content">
-              <p class="card__title">Photoshop</p>
-              <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="img/kombinul.png" alt=""> 
-            <div class="card__content">
-              <p class="card__title">Une vidéo humour</p>
-              <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-            </div>
-          </div>
-          
-</section>
-
-<section id="contact">
-    <div class="contact-content">
-        <form class="contact-form">
-            <h1>Un monde qui est créé avec votre imagination</h1>
-            <p class="subtitle">Let's align our constellations! Reach out and let the magic of collaboration illuminate our skies.</p>
-            
-            <input type="text" placeholder="Last Name">
-            <input type="text" placeholder="First Name">
-            <input type="email" placeholder="Email">
-            <input type="tel" placeholder="Phone Number">
-            <textarea placeholder="Message"></textarea>
-            <button class="envoyer">
-                <span class="text">Envoyer</span>
-            </button>
-        </form>
+<section id="parcours" role="region" aria-label="Parcours">
+<main role="main">
+    <div class="parcours-container">
+        <h1>PARCOURS</h1>
         
-        <div class="mountain-image">
-            <img src="img/montagne.jpeg" alt="Mountain landscape">
+        <div class="parcours-grid">
+            <!-- Carte Formation -->
+            <div class="parcours-card">
+                <div class="card-header">
+                    <div class="card-icon">🎓</div>
+                    <h2>Formation</h2>
+                </div>
+                <div class="card-content">
+                    <div class="timeline-item">
+                        <div class="year">2023-2024</div>
+                        <div class="event">
+                            <h3>Lycée Laetitia Bonaparte</h3>
+                            <p>Baccalauréat technologique STI2D</p>
+                            <div class="skill-tags">
+                                <span>Technologie</span>
+                                <span>Innovation</span>
+                                <span>Design</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2022-2023</div>
+                        <div class="event">
+                            <h3>Préparation militaire marine</h3>
+                            <div class="skill-tags">
+                                <span>Discipline</span>
+                                <span>Sport</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2018-2022</div>
+                        <div class="event">
+                            <h3>Collège Laetitia Bonaparte</h3>
+                            <p>Brevet des collèges</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Carte Activités -->
+<div class="parcours-card">
+    <div class="card-header">
+        <div class="card-icon">🎵</div>
+        <h2>Activités</h2>
+    </div>
+    <div class="card-content">
+        <div class="activity-box">
+            <div class="activity-image">
+                <img src="img/mahbod-issaiy-2feb42c2-1d2b-4aa3-83ce-95ef02bff5ac.jpg" alt="Violoniste">
+                <div class="image-overlay">
+                    <span>2014-2024</span>
+                </div>
+            </div>
+            <div class="activity-details">
+                <h3>Violoniste</h3>
+                <p>Cycle 3</p>
+            </div>
+        </div>
+        <div class="activity-box">
+            <div class="activity-image">
+                <img src="img/5b3c854aa8f72eacac29b7a4.w800.jpg" alt="Percussionniste">
+                <div class="image-overlay">
+                    <span>2012-2024</span>
+                </div>
+            </div>
+            <div class="activity-details">
+                <h3>Percussionniste</h3>
+                <p>Diplôme du musicien indépendant (CEM)</p>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+</section>
+
+<section id="project" role="region" aria-label="Projets">
+<main role="main">
+    <div class="project-container">
+        <h1>Projet</h1>
+        <div class="project-content">
+            <div class="card">
+                <img src="img/Blender_logo.jpg" alt="Blender"> 
+                <div class="card__content">
+                  <p class="card__title">Blender</p>
+                  <p class="card__description">Vous avez probablement vue cette application de 3D, J'ai appris à l'utilisé bien après Unreal. Aujourd'hui je l'utilise pour la reproduction de visage 3D</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/kombinul.png" alt="Une vidéo humour"> 
+                <div class="card__content">
+                  <p class="card__title">Une vidéo humour</p>
+                  <p class="card__description">Pour le premier semestre du MMI, il était demandé de faire une vidéo de groupe auquel on a choisi de prendre un enderman de MINECRAFT et l'adapter sous une interview Konbini</p>
+                </div>
+            </div>
+        </div>   
+    </div>
+</main>          
+</section>
+
+<section id="contact" role="region" aria-label="Contact">
+    <div style="background-color: #2b2f33; min-height: 100vh; padding: 40px 20px; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 100%; max-width: 1200px; margin: 0 auto; background-color: rgba(50, 53, 57, 0.7); border-radius: 10px; overflow: hidden; display: flex; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
+            <!-- Partie formulaire -->
+            <div style="width: 60%; padding: 50px; color: white;">
+                <h1 style="color: white; font-size: 24px; margin-bottom: 15px;">N'hésiter pas à me contacter</h1>
+                <p style="color: #acacac; margin-bottom: 30px; font-size: 1.5em;">Remplissez ce formulaire si vous voulez envoyer un mail</p>
+                
+                <form style="display: flex; flex-direction: column; gap: 15px;">
+                    <input type="text" placeholder="Last Name" style="width: 100%; padding: 12px; background-color: rgba(255, 255, 255, 0.1); border: none; border-radius: 4px; color: white;">
+                    <input type="text" placeholder="First Name" style="width: 100%; padding: 12px; background-color: rgba(255, 255, 255, 0.1); border: none; border-radius: 4px; color: white;">
+                    <input type="email" placeholder="Email" style="width: 100%; padding: 12px; background-color: rgba(255, 255, 255, 0.1); border: none; border-radius: 4px; color: white;">
+                    <input type="tel" placeholder="Phone Number" style="width: 100%; padding: 12px; background-color: rgba(255, 255, 255, 0.1); border: none; border-radius: 4px; color: white;">
+                    <textarea placeholder="Message" style="width: 100%; min-height: 150px; padding: 12px; background-color: rgba(255, 255, 255, 0.1); border: none; border-radius: 4px; color: white; resize: vertical;"></textarea>
+                    <button style="background: linear-gradient(90deg,rgb(0, 42, 255),rgb(0, 132, 255)); color: white; border: none; border-radius: 4px; padding: 12px; font-size: 16px; font-weight: bold; cursor: pointer;min-height: 44px;">Envoyer</button>
+                </form>
+            </div>
+            
+            <!-- Partie image -->
+            <div style="width: 40%;">
+                <img src="img/montagne_OP8.jpg" alt="Mountain landscape" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </div>
         </div>
     </div>
 </section>
 
 <footer>
-    <div class="footer-content">
+    <div class="footer-content" role="contentinfo">
         <div class="contact-info">
             <p>Tel : 06 47 11 30 30</p>
         </div>
