@@ -106,37 +106,7 @@ nav a.active::after {
 }
 
 /* Animation au survol */
-.btn-animate {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
 
-.btn-animate:hover {
-  background-color: #45a049;
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-
-/* Animation au clic */
-.btn-animate:active {
-  transform: scale(0.95);
-}
-
-/* Animation de pulsation */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-.btn-pulse {
-  animation: pulse 2s infinite;
-}
 
 /* Animation de brillance */
 @keyframes glow {
