@@ -8,24 +8,7 @@
     <title>PortFolio</title>
 </head>
 <body>
-  <script>
-   document.addEventListener('DOMContentLoaded', () => {
-    const nav = document.querySelector('nav');
-    const presentationSection = document.querySelector('#presentation');
 
-    window.addEventListener('scroll', () => {
-        const presentationRect = presentationSection.getBoundingClientRect();
-        
-        if (presentationRect.top <= 0) {
-            nav.style.position = 'fixed';
-            nav.style.top = '0';
-        } else {
-            nav.style.position = 'absolute';
-            nav.style.top = '0';
-        }
-    });
-});
-  </script>
 <header role="banner">
 <section id="home">
     <div class="left-content">
@@ -38,16 +21,6 @@
 </section>
 </header>
 
-<script>
-    window.addEventListener('scroll', () => {
-       const nav = document.querySelector('nav');
-       if (window.scrollY > 100) {
-           nav.classList.add('visible');
-       } else {
-           nav.classList.remove('visible');
-       }
-    });
-    </script>
 
 <section id="presentation" role="region" aria-label="Présentation">
 <main role="main">
@@ -59,66 +32,6 @@
     <a href="#project">Project</a>
     <a href="#contact">Contact</a>
     </nav>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-    const nav = document.querySelector('nav');
-    const presentationSection = document.querySelector('#presentation');
-    const navLinks = document.querySelectorAll('nav a');
-    const sections = document.querySelectorAll('section');
-
-    // Fonction pour mettre à jour la position de la navbar et les liens actifs
-    function updateNav() {
-        const presentationRect = presentationSection.getBoundingClientRect();
-        
-        // Gestion de la position fixe/absolute
-        if (presentationRect.top <= 0) {
-            nav.style.position = 'fixed';
-            nav.style.top = '0';
-        } else {
-            nav.style.position = 'absolute';
-            nav.style.top = '0';
-        }
-
-        // Mise à jour du lien actif
-        sections.forEach(section => {
-            const rect = section.getBoundingClientRect();
-            const id = section.getAttribute('id');
-            
-            // On considère une section visible si son haut est près du haut de l'écran
-            if (rect.top <= 150 && rect.bottom >= 150) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${id}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    }
-
-    // Écouteur de scroll
-    window.addEventListener('scroll', updateNav);
-
-    // Navigation douce
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            const navHeight = nav.offsetHeight;
-
-            window.scrollTo({
-                top: targetSection.offsetTop - navHeight,
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Appel initial pour définir l'état correct
-    updateNav();
-});
-</script>
 
   <div class="containerpresentation">
     <h1 class="title">PRÉSENTATION</h1>
@@ -261,15 +174,7 @@
                 </div>
             </div>
         </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-    const progressBars = document.querySelectorAll('.progress');
-    progressBars.forEach(bar => {
-        const value = bar.dataset.value;
-        bar.style.setProperty('--value', value + '%');
-    });
- });
-    </script>
+   
   </main>        
 </section>
   
