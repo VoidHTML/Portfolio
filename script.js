@@ -55,3 +55,31 @@ document.addEventListener('DOMContentLoaded', () => {
         bar.style.setProperty('--value', value + '%');
     });
 });
+
+
+// Fonction pour charger la carte au survol
+function loadMapOnHover(container) {
+    if (!container.querySelector('iframe')) {
+        container.innerHTML = `
+            <iframe
+                aria-label="carte google d'Ajaccio"   
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48059.71944500068!2d8.714637624730645!3d41.91893941843779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12da1b59add3ded1%3A0x40819a5fd97a940!2sAjaccio%2C%20France!5e0!3m2!1sfr!2sfr!4v1704811952085!5m2!1sfr!2sfr"
+                width="100"
+                height="100"
+                style="border:0;"
+                allowfullscreen=""  
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                class="map-frame">
+            </iframe>
+        `;
+    }
+}
+
+// Si vous voulez l'utiliser, ajoutez un écouteur d'événement
+document.addEventListener('DOMContentLoaded', () => {
+    const mapContainer = document.querySelector('.map-container');
+    if (mapContainer) {
+        mapContainer.addEventListener('mouseover', () => loadMapOnHover(mapContainer));
+    }
+});
